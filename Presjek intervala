@@ -1,0 +1,31 @@
+/*Zadatak
+Napisati program koji će izračunati presjek skupova S1 i S2. Skupovi S1 i S2
+definisani su intervalima realnih brojeva: S1=[a, b] S2=[c, d]. Na primjer, ako
+se za ulaz uzmu skupovi (prikazani na slici 1): S1=[3, 9] S2=[7, 11]. program
+kao izlaz treba dati: Rezultantni interval je [7,9].
+Napomena: Vaš program mora obraditi sve moguće situacije (skupovi se ne sijeku,
+skup S1 je sadržan u skupu S2 i obratno itd.) Testni podaci sa rezultatima će
+vam pomoći da se uvjerite da je vaš program ispravan.*/
+#include <stdio.h>
+int main() {
+  float a, b, c, d;
+  float presjekPocetak, presjekKraj;
+  printf("Unesite brojeve a,b,c,d: ");
+  scanf("%f %f %f %f", &a, &b, &c, &d);
+  if (a > c) {
+    presjekPocetak = a;
+  } else {
+    presjekPocetak = c;
+  }
+  if (b < d) {
+    presjekKraj = b;
+  } else {
+    presjekKraj = d;
+  }
+  if (presjekKraj < presjekPocetak) {
+    printf("Skupovi se ne sijeku.");
+  } else {
+    printf("Rezultantni interval je [%g,%g].", presjekPocetak, presjekKraj);
+  }
+  return 0;
+}
