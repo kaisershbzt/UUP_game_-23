@@ -1,0 +1,49 @@
+/*/*Napisati program koji od korisnika traži da unese tri broja koji
+predstavljaju dan, mjesec i godinu. Nakon toga će program ispisati datum u
+sljedećem formatu „Uneseni datum je X. mjesec Y. godine“. Primjer:
+
+Unesite dan, mjesec i godinu (razdvojite razmakom): 21 9 2008
+Uneseni datum je 21. septembar 2008. godine
+Program treba da izvrši provjeru ulaznih podataka (mjesec ne smije biti manji od
+1 niti veći od 12, dan mora biti u određenim granicama [1, 31] – nije potrebno
+da provjeravate broj dana za određeni mjesec npr. februar da ima 28/29 dana,
+april 30 i slično, a godina ne smije biti manja od 1 niti veća od 4000). U
+slučaju da se unese pogrešan podatak, program treba ispisati „Pogresni ulazni
+podaci!“ i završiti sa radom.*/
+#include <stdio.h>
+
+int main() {
+  int dd, mm, yy;
+  printf("Unesite dan, mjesec i godinu (razdvojite razmakom): ");
+  scanf("%d %d %d", &dd, &mm, &yy);
+  if ((dd < 1 || dd > 31) || (mm < 1 || mm > 12) || (yy < 1 || yy > 4000)) {
+    printf("Pogresni ulazni podaci!");
+    return 0;
+  }
+  if (mm == 1)
+    printf("Uneseni datum je %d. januar %d. godine", dd, yy);
+  if (mm == 2)
+    printf("Uneseni datum je %d. februar %d. godine", dd, yy);
+  if (mm == 3)
+    printf("Uneseni datum je %d. mart %d. godine", dd, yy);
+  if (mm == 4)
+    printf("Uneseni datum je %d. april %d. godine", dd, yy);
+  if (mm == 5)
+    printf("Uneseni datum je %d. maj %d. godine", dd, yy);
+  if (mm == 6)
+    printf("Uneseni datum je %d. juni %d. godine", dd, yy);
+  if (mm == 7)
+    printf("Uneseni datum je %d. juli %d. godine", dd, yy);
+  if (mm == 8)
+    printf("Uneseni datum je %d. august %d. godine", dd, yy);
+  if (mm == 9)
+    printf("Uneseni datum je %d. septembar %d. godine", dd, yy);
+  if (mm == 10)
+    printf("Uneseni datum je %d. oktobar %d. godine", dd, yy);
+  if (mm == 11)
+    printf("Uneseni datum je %d. novembar %d. godine", dd, yy);
+  if (mm == 12)
+    printf("Uneseni datum je %d. decembar %d. godine", dd, yy);
+
+  return 0;
+}
