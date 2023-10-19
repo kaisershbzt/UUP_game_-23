@@ -1,0 +1,18 @@
+#include <stdio.h>
+/*Napisati program koji od korisnika traži unos ocjena iz 5 predmeta te računa
+prosjek tih ocjena. Ocjene su u intervalu [6, 10] i to nije potrebno
+provjeravati. Potrebno je ispisati zbir unesenih ocjena i prosjek zaokružen na 2
+decimalna mjesta.
+Primjer ulaza i izlaza:
+Unesite 5 ocjena: 6 6 7 9 8
+Zbir unesenih ocjena je 36, a prosjek je: 7.20
+*/
+int main() {
+  int a, b, c, d, e;
+  printf("Unesite 5 ocjena: ");
+  scanf("%d %d %d %d %d", &a, &b, &c, &d, &e);
+  float prosjek = (a + b + c + d + e) / 5.0;
+  printf("Zbir unesenih ocjena je %d, a prosjek je: %.2f", a + b + c + d + e,
+         prosjek);
+  return 0;
+}
