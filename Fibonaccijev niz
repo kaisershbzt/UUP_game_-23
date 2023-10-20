@@ -1,0 +1,32 @@
+/*Fibonaccijev niz brojeva je niz u kojem nakon dvije početne vrijedosti
+(jedinice), svaki sljedeći broj je jednak zbiru dva prethodnika. Napisati
+program koji će ispisati prvih n Fibonaccijevih brojeva, gdje se n unosi sa
+tastature. Primjer ispisa:
+
+Unesite n: 8
+Prvih 8 Fibonaccijevih brojeva: 1 1 2 3 5 8 13 21
+Napomena: zabranjeno korištenje nizova u zadatku.*/
+#include <stdio.h>
+
+int main() {
+  int n, a = 1, b = 1, temp;
+  printf("Unesite n: ");
+  scanf("%d", &n);
+  if (n < 1) {
+    printf("Neispravan unos");
+    return 0;
+  }
+  printf("Prvih %d Fibonaccijevih brojeva: ", n);
+  if (n >= 1)
+    printf("%d", a);
+  if (n >= 2)
+    printf(" %d", b);
+  for (int i = 3; i <= n; i++) {
+    temp = a + b;
+    printf(" %d", temp);
+    a = b;
+    b = temp;
+  }
+  printf("\n");
+  return 0;
+}
