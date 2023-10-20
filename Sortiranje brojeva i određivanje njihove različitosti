@@ -1,0 +1,68 @@
+/*Napisati program koji učitava tri cijela broja iz intervala od 50 do 200. Ako
+svi uneseni brojevi nisu iz tog intervala, program treba ispisati poruku
+
+Svi brojevi nisu iz intervala 50 do 200
+i završiti s radom. Ako su brojevi unutar tog intervala program treba ispisati
+učitane brojeve po veličini od najmanjeg prema najvećem, te odrediti koliko
+različitih brojeva je uneseno.
+
+Primjer ulaza i izlaza:
+
+Unesite tri broja: 150 100 150
+Brojevi poredani po velicini glase: 100,150,150
+Unesena su 2 razlicita broja
+Pri rješavanju problema nije dozvoljeno koristiti petlje niti nizove.*/
+#include <stdio.h>
+int main() {
+  int a, b, c, mid, max, min;
+  int diff = 0;
+  printf("Unesite tri broja: ");
+  scanf("%d %d %d", &a, &b, &c);
+  if ((a < 50 || a > 200) || (b < 50 || b > 200) || (c < 50 || c > 200)) {
+    printf("Svi brojevi nisu iz intervala 50 do 200");
+    return 0;
+  }
+  min = a;
+  max = a;
+  mid = a;
+  if (a >= b && a >= c) {
+    max = a;
+    if (b > c) {
+      mid = b;
+      min = c;
+    } else {
+      mid = c;
+      min = b;
+    }
+  } else {
+    if (b >= c && b >= a) {
+      max = b;
+      if (a > c) {
+        mid = a;
+        min = c;
+      } else {
+        mid = c;
+        min = a;
+      }
+    } else {
+      if (a >= b) {
+        mid = a;
+        max = c;
+        min = b;
+      }
+    }
+  }
+  if (min != max)
+    diff++;
+  if (min != mid)
+    diff++;
+  if (max != mid)
+    diff++;
+  printf("Brojevi poredani po velicini glase: %d,%d,%d\n", min, mid, max);
+  if (diff == 0) {
+    printf("Unesen je 1 razlicit broj");
+    return 0;
+  }
+  printf("Unesena su %d razlicita broja", diff);
+  return 0;
+}
