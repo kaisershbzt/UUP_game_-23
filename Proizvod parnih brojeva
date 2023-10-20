@@ -1,0 +1,31 @@
+/*Napisati program koji računa proizvod svih prirodnih parnih brojeva do broja n
+(uključivo) koji se unosi sa tastature. Ukoliko uneseni broj nije prirodan,
+program treba da ispiše grešku i završi sa radom. Primjer ulaza i izlaza:
+
+
+Unesite n: 5
+Proizvod je: 8
+
+Unesite n: 14
+Proizvod je: 645120*/
+#include <stdio.h>
+
+int main() {
+  int n;
+  double proizvod = 1;
+  printf("Unesite n: ");
+  scanf("%d", &n);
+  if (n < 1) {
+    printf("Broj nije prirodan");
+    return 0;
+  }
+  for (int i = 2; i <= n; i += 2) {
+    proizvod = proizvod * i;
+  }
+  if (n == 1)
+    printf("Proizvod je: 0");
+  else {
+    printf("\nProizvod je: %g", proizvod);
+  }
+  return 0;
+}
