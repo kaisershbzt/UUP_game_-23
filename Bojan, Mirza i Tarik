@@ -1,0 +1,209 @@
+/*Zadatak
+Tri prijatelja - Tarik, Bojan i Mirza - odlučili su da uporede svoj uspjeh na
+predmetu Osnove računarstva. Njima je potreban program koji omogućuje unos
+bodova po kategorijama: I parcijalni ispit (max. 20 bodova), II parcijalni ispit
+(max. 20 bodova), Prisustvo (max. 10 bodova), Zadaće (max. 10 bodova) i Završni
+ispit (max. 40 bodova). Broj bodova može imati i decimalni dio. U slučaju da se
+unese negativan broj bodova ili veći od dozvoljenog, program treba ispisati
+poruku "Neispravan broj bodova" (bez navodnika) i prekinuti rad programa.
+
+Ako su svi bodovi uneseni ispravno, nakon unosa treba odrediti ocjene za svakog
+studenta po važećoj skali:
+
+do 55 bodova - student pao
+[55, 65) bodova - ocjena 6
+[65, 75) bodova - ocjena 7
+[75, 85) bodova - ocjena 8
+[85, 92) boda - ocjena 9
+[92, 100] bodova - ocjena 10
+Potrebno je ispisati jednu od sljedećih poruka ovisno o situaciji:
+
+Nijedan student nije položio.
+Jedan student je položio.
+Dva studenta su položila.
+Sva tri studenta su položila.
+Te ako su sva tri studenta položila, u sljedećem redu ispisati jednu od poruka:
+
+Sva tri studenta imaju istu ocjenu.
+Dva od tri studenta imaju istu ocjenu.
+Svaki student ima različitu ocjenu.
+Primjer ulaza i izlaza:
+
+Unesite bodove za Tarika:
+I parcijalni ispit: 18
+II parcijalni ispit: 15
+Prisustvo: 9
+Zadace: 5
+Zavrsni ispit: 30
+Unesite bodove za Bojana:
+I parcijalni ispit: 12
+...
+Sva tri studenta su polozila.
+Svaki student ima razlicitu ocjenu.
+Napomena: Pri rješavanju zadatka nije dozvoljeno koristiti nizove niti petlje!*/
+#include <stdio.h>
+
+int main() {
+  double TpParc, TdParc, Tprisustvo, Tzad, TzIspit;
+  double BpParc, BdParc, Bprisustvo, Bzad, BzIspit;
+  double MpParc, MdParc, Mprisustvo, Mzad, MzIspit;
+  printf("Unesite bodove za Tarika: \nI parcijalni ispit: ");
+  scanf("%lf", &TpParc);
+  if (TpParc > 20 || TpParc < 0) {
+    printf("Neispravan broj bodova\n");
+    return 0;
+  }
+  printf("II parcijalni ispit: ");
+  scanf("%lf", &TdParc);
+  if (TdParc > 20 || TdParc < 0) {
+    printf("Neispravan broj bodova\n");
+    return 0;
+  }
+  printf("Prisustvo: ");
+  scanf("%lf", &Tprisustvo);
+  if (Tprisustvo > 10 || Tprisustvo < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Zadace: ");
+  scanf("%lf", &Tzad);
+  if (Tzad > 10 || Tzad < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Zavrsni ispit: ");
+  scanf("%lf", &TzIspit);
+  if (TzIspit > 40 || TzIspit < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Unesite bodove za Bojana: \nI parcijalni ispit: ");
+  scanf("%lf", &BpParc);
+  if (BpParc > 20 || BpParc < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("II parcijalni ispit: ");
+  scanf("%lf", &BdParc);
+  if (BdParc > 20 || BdParc < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Prisustvo: ");
+  scanf("%lf", &Bprisustvo);
+  if (Bprisustvo > 10 || Bprisustvo < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Zadace: ");
+  scanf("%lf", &Bzad);
+  if (Bzad > 10 || Bzad < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Zavrsni ispit: ");
+  scanf("%lf", &BzIspit);
+  if (BzIspit > 40 || BzIspit < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Unesite bodove za Mirzu: \nI parcijalni ispit: ");
+  scanf("%lf", &MpParc);
+  if (MpParc > 20 || MpParc < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("II parcijalni ispit: ");
+  scanf("%lf", &MdParc);
+  if (MdParc > 20 || MdParc < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Prisustvo: ");
+  scanf("%lf", &Mprisustvo);
+  if (Mprisustvo > 10 || Mprisustvo < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Zadace: ");
+  scanf("%lf", &Mzad);
+  if (Mzad > 10 || Mzad < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  printf("Zavrsni ispit: ");
+  scanf("%lf", &MzIspit);
+  if (MzIspit > 40 || MzIspit < 0) {
+    printf("Neispravan broj bodova");
+    return 0;
+  }
+  double tOcjena, bOcjena, mOcjena;
+  int polozili = 0;
+  tOcjena = TpParc + TdParc + Tzad + Tprisustvo + TzIspit;
+  mOcjena = MpParc + MdParc + Mzad + Mprisustvo + MzIspit;
+  bOcjena = BpParc + BdParc + Bzad + Bprisustvo + BzIspit;
+  if (tOcjena < 55) {
+    tOcjena = 5;
+  } else if (tOcjena < 65) {
+    tOcjena = 6;
+  } else if (tOcjena < 75) {
+    tOcjena = 7;
+  } else if (tOcjena < 85) {
+    tOcjena = 8;
+  } else if (tOcjena < 92) {
+    tOcjena = 9;
+  } else {
+    tOcjena = 10;
+  }
+  if (mOcjena < 55) {
+    mOcjena = 5;
+  } else if (mOcjena < 65) {
+    mOcjena = 6;
+  } else if (mOcjena < 75) {
+    mOcjena = 7;
+  } else if (mOcjena < 85) {
+    mOcjena = 8;
+  } else if (mOcjena < 92) {
+    mOcjena = 9;
+  } else {
+    mOcjena = 10;
+  }
+  if (bOcjena < 55) {
+    bOcjena = 5;
+  } else if (bOcjena < 65) {
+    bOcjena = 6;
+  } else if (bOcjena < 75) {
+    bOcjena = 7;
+  } else if (bOcjena < 85) {
+    bOcjena = 8;
+  } else if (bOcjena < 92) {
+    bOcjena = 9;
+  } else {
+    bOcjena = 10;
+  }
+  if (tOcjena >= 6)
+    polozili++;
+  if (mOcjena >= 6)
+    polozili++;
+  if (bOcjena >= 6)
+    polozili++;
+
+  if (polozili == 1) {
+    printf("Jedan student je polozio.\n");
+  } else if (polozili == 2) {
+    printf("Dva studenta su polozila.\n");
+  } else if (polozili == 3) {
+    printf("Sva tri studenta su polozila.\n");
+  } else {
+    printf("Nijedan student nije polozio.\n");
+  }
+  if ((tOcjena == mOcjena && mOcjena == bOcjena) && (polozili == 3))
+    printf("Sva tri studenta imaju istu ocjenu.");
+  else if ((tOcjena == bOcjena || bOcjena == mOcjena || tOcjena == mOcjena) &&
+           (polozili == 3)) {
+    printf("Dva od tri studenta imaju istu ocjenu.");
+  } else if (polozili == 3) {
+    printf("Svaki student ima razlicitu ocjenu.");
+  }
+  return 0;
+}
