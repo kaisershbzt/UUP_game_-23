@@ -1,0 +1,32 @@
+/*Napišite program koji omogućuje korisniku da unese neograničeno mnogo cijelih
+ * brojeva sa tastature, pri čemu broj -1 označava kraj unosa. Zatim se na
+ * ekranu ispisuje koliko unesenih brojeva je djeljivo sa 5, sa 7 i sa 11.*/
+#include <stdio.h>
+
+int main() {
+  int niz[10000];
+  int broj5 = 0;
+  int broj7 = 0;
+  int broj11 = 0;
+  int a;
+  int brojevi = 0;
+  printf("Unesite brojeve:\n");
+  while (1) {
+    scanf("%d", &a);
+    if (a == -1) {
+      break;
+    }
+    niz[brojevi] = a;
+    brojevi++;
+    if (a % 5==0)
+      broj5++;
+    if (a % 7==0)
+      broj7++;
+    if (a % 11==0)
+      broj11++;
+  }
+  printf("Djeljivih sa 5: %d\n", broj5);
+  printf("Djeljivih sa 7: %d\n", broj7);
+  printf("Djeljivih sa 11: %d\n", broj11);
+  return 0;
+}
